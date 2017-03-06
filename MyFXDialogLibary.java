@@ -27,13 +27,14 @@ public class MyFXDialogLibary{
 		return result.get();
 	}	
 	
-		public String showChioceDialog(String titelText, String headerText, String contentText, ArrayList<E> choices){
-		ChoiceDialog<String> dialog = new ChoiceDialog<>(choices.get(0), choices);
-		dialog.setTitle(titelText);
-		dialog.setHeaderText(headerText);
-		dialog.setContentText(contentText);
 
-		Optional<String> result = dialog.showAndWait();
-		return result.get();
-	}
+	 public String showChioceDialog(String titelText, String headerText, String contentText) {
+    		ChoiceDialog<String> dialog = new ChoiceDialog();
+    		dialog.setTitle(titelText);
+    		dialog.setHeaderText(headerText);
+    		dialog.setContentText(contentText);
+
+    		Optional<String> result = dialog.showAndWait();
+    		return result.get();
+  	}
 }
