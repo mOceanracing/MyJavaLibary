@@ -76,17 +76,6 @@ public class MyFXDialogLibary {
     return result.get();
   }
 
-
-  public static String showChioceDialog(String titelText, String headerText, String contentText) {
-    ChoiceDialog<String> dialog = new ChoiceDialog();
-    dialog.setTitle(titelText);
-    dialog.setHeaderText(headerText);
-    dialog.setContentText(contentText);
-
-    Optional<String> result = dialog.showAndWait();
-    return result.get();
-  }
-
   /**
    * This Method generate a Exception-Dialog with stacktrace.
    * @param titelText
