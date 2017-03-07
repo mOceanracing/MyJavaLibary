@@ -1,5 +1,5 @@
-public class MyFXDialogLibary{
- public static void showInfoDialog(String titelText, String headerText, String contentText) {
+public class MyFXDialogLibary {
+  public static void showInfoDialog(String titelText, String headerText, String contentText) {
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
     alert.setTitle(titelText);
     alert.setHeaderText(headerText);
@@ -27,7 +27,7 @@ public class MyFXDialogLibary{
   }
 
   public static void showErrorDialog(String titelText, String headerText, String contentText) {
-    Alert alert = new Alert(Alert.AlertType.ERROR;
+    Alert alert = new Alert(Alert.AlertType.ERROR);
     alert.setTitle(titelText);
     alert.setHeaderText(headerText);
     alert.setContentText(contentText);
@@ -35,7 +35,7 @@ public class MyFXDialogLibary{
     alert.showAndWait();
   }
 
-  public String showTextInputDialog(String titelText, String headerText, String contentText) {
+  public static String showTextInputDialog(String titelText, String headerText, String contentText) {
     TextInputDialog dialog = new TextInputDialog();
     dialog.setTitle(titelText);
     dialog.setHeaderText(headerText);
@@ -45,7 +45,7 @@ public class MyFXDialogLibary{
     return result.get();
   }
 
-  public String showChioceDialog(String titelText, String headerText, String contentText) {
+  public static String showChioceDialog(String titelText, String headerText, String contentText) {
     ChoiceDialog<String> dialog = new ChoiceDialog();
     dialog.setTitle(titelText);
     dialog.setHeaderText(headerText);
@@ -55,7 +55,7 @@ public class MyFXDialogLibary{
     return result.get();
   }
 
-  public void showExceptionDialog(String titelText, String headerText, String contentText, String exceptionText) {
+  public static void showExceptionDialog(String titelText, String headerText, String contentText, String exceptionText) {
     Alert alert = new Alert(Alert.AlertType.ERROR);
     alert.setTitle(titelText);
     alert.setHeaderText(headerText);
@@ -75,7 +75,7 @@ public class MyFXDialogLibary{
     alert.showAndWait();
   }
 
-  public String showConfirmationDialog_A_or_B(String titelText, String headerText, String contentText, String buttonTextA, String buttonTextB) {
+  public static String showConfirmationDialog_A_or_B(String titelText, String headerText, String contentText, String buttonTextA, String buttonTextB) {
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     alert.setTitle(titelText);
     alert.setHeaderText(headerText);
@@ -90,5 +90,4 @@ public class MyFXDialogLibary{
     Optional<ButtonType> result = alert.showAndWait();
     return result.get().getText();
   }
-
 }
