@@ -21,7 +21,7 @@ public class MyPreferenceLibary {
    * @param preferencKey key with which the specified value is to be associated.
    * @param preferencValue value to be associated with the specified key.
    */
-  public void setStringFromPreferences(@Nonnull final String preferencKey, @Nonnull final String preferencValue) {
+  public void setStringToPreferences(@Nonnull final String preferencKey, @Nonnull final String preferencValue) {
     preferences.put(preferencKey, preferencValue);
   }
 }
