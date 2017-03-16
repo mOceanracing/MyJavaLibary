@@ -1,5 +1,7 @@
 package ch.kissling.MyJavaLibary.helperClasses;
 
+import java.util.prefs.Preferences;
+
 public class MyPreferenceLibary {
     private final Preferences preferences = Preferences.userNodeForPackage(this.getClass());
 

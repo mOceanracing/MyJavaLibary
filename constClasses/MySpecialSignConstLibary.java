@@ -1,4 +1,4 @@
-package ch.kissling.MyJavaLibary.consts;
+package ch.kissling.MyJavaLibary.constClasses;
 
 public interface MySpecialSignConstLibary {
 
@@ -11,7 +11,7 @@ public interface MySpecialSignConstLibary {
     public final static String EXCLAMATION_MARK = "!";
     public final static String NEWLINE_HTML = "<br>";
     public final static String PIPE = "|";
-    public final static String TAB = "\t";
+    public final static String TAB = "\\t";
     public final static String COMMA = ",";
     public final static String UNDERLINE = "_";
     public final static String COLON = ":";
@@ -27,8 +27,7 @@ public interface MySpecialSignConstLibary {
     public final static String BRACKET_SQUARE_LEFT = "[";
     public final static String BRACKET_CURLY_RIGHT = "}";
     public final static String BRACKET_CURLY_LEFT = "{";
-    public final static String GLEICH
-    "=";
+    public final static String GLEICH = "=";
     public final static String NEWLINE_CRLF = "\r\n";
     public final static String NUMBER_SIGN = "#";
     public final static String PERCENT_SIGN = "%";

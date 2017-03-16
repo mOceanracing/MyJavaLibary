@@ -1,4 +1,4 @@
-package ch.kissling.MyJavaLibary.consts;
+package ch.kissling.MyJavaLibary.constClasses;
 
 public class MyHTMLConstLibary {
     public static final String HTML_TAG_START = "<HTML>";
@@ -16,14 +16,14 @@ public class MyHTMLConstLibary {
     //Überschriften h1 - h6
     public static final String HTML_H1_START = "<h1>";
     public static final String HTML_H1_END = "<h1>";
-    public static final String HTML_H1_START = "<h2>";
-    public static final String HTML_H1_END = "</h2>";
-    public static final String HTML_H1_START = "<h3>";
-    public static final String HTML_H1_END = "</h3>";
-    public static final String HTML_H1_START = "<h4>";
-    public static final String HTML_H1_END = "</h4>";
-    public static final String HTML_H1_START = "<h5>";
-    public static final String HTML_H1_END = "</h5>";
-    public static final String HTML_H1_START = "<h6>";
-    public static final String HTML_H1_END = "</h6>";
+    public static final String HTML_H2_START = "<h2>";
+    public static final String HTML_H2_END = "</h2>";
+    public static final String HTML_H3_START = "<h3>";
+    public static final String HTML_H3_END = "</h3>";
+    public static final String HTML_H4_START = "<h4>";
+    public static final String HTML_H4_END = "</h4>";
+    public static final String HTML_H5_START = "<h5>";
+    public static final String HTML_H5_END = "</h5>";
+    public static final String HTML_H6_START = "<h6>";
+    public static final String HTML_H6_END = "</h6>";
 }

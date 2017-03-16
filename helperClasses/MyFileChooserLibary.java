@@ -13,7 +13,7 @@ public class MyFileChooserLibary {
         FileChooser fileChooser = new FileChooser();
         Stage fileChooserStage = new Stage();
 
-        
+
         fileChooserStage.setTitle(titel);
         fileChooserStage.initModality(modality);
 

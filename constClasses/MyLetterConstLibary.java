@@ -1,4 +1,4 @@
-package ch.kissling.MyJavaLibary.consts;
+package ch.kissling.MyJavaLibary.constClasses;
 
 public class MyLetterConstLibary {
 
@@ -56,5 +56,5 @@ public class MyLetterConstLibary {
     public final static String LETTER_W_UNDERCASE = "w";
     public final static String LETTER_X_UNDERCASE = "x";
     public final static String LETTER_Y_UNDERCASE = "y";
-    public final static String LETTER_Z_UNDERCASE = "z"
+    public final static String LETTER_Z_UNDERCASE = "z";
 }

@@ -1,4 +1,4 @@
-package ch.kissling.MyJavaLibary.consts;
+package ch.kissling.MyJavaLibary.constClasses;
 
 public class MyDriveConstLibary {
     public final static String LAUFWERK_A = "A:";
