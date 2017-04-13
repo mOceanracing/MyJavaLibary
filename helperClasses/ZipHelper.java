@@ -27,6 +27,14 @@ public class ZipFileHandler {
   private static final String SLASH = "/";
   private static final String SLASH_DOT = "/.";
 
+    /**
+   * Creat a new ZIP-File with the given Files.
+   * @param targetDirectoryOfZipFile
+   * @param nameOfZIPFile
+   * @param contentForZipFile
+   * @return
+   * @throws Exception
+   */
   public static ZipFile zipFile(@Nonnull final String targetDirectoryOfZipFile, @Nonnull final String nameOfZIPFile, @Nonnull final File... contentForZipFile) throws Exception {
     ZipFile zipFile = new ZipFile(targetDirectoryOfZipFile + "/" + nameOfZIPFile + FILE_EXTENSION_ZIP);
 
@@ -43,6 +51,13 @@ public class ZipFileHandler {
     return zipFile;
   }
 
+    /**
+   * Open the given ZIP-File at the given destination.
+   * @param filePath
+   * @param destination
+   * @param nameOfHiddenFolder
+   * @throws Exception
+   */
   public static void unZipFile(@Nonnull final String filePath, @Nonnull final String destination, @Nonnull final String nameOfHiddenFolder) throws Exception {
     final File source = new File(filePath);
     if (!existHiddenFolder(nameOfHiddenFolder)) {
