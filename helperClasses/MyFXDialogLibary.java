@@ -1,4 +1,5 @@
 
+
 import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Optional;
@@ -34,9 +35,10 @@ public class DialogHandler {
    * @param titelText
    * @param headerText
    * @param contentText
+   * @param logContent
    */
-  public static void showInfoDialog(@Nonnull final String titelText, @Nonnull final String headerText, @Nonnull final String contentText) {
-    showDialog(Alert.AlertType.INFORMATION, titelText, headerText, contentText);
+  public static void showInfoDialog(@Nonnull final String titelText, @Nonnull final String headerText, @Nonnull final String contentText, final boolean logContent) {
+    showDialog(Alert.AlertType.INFORMATION, titelText, headerText, contentText, logContent);
   }
 
   /**
@@ -44,9 +46,10 @@ public class DialogHandler {
    *
    * @param titelText
    * @param contentText
+   * @param logContent
    */
-  public static void showInfoDialog(@Nonnull final String titelText, @Nonnull final String contentText) {
-    showInfoDialog(titelText, EMPTY, contentText);
+  public static void showInfoDialog(@Nonnull final String titelText, @Nonnull final String contentText, final boolean logContent) {
+    showInfoDialog(titelText, EMPTY, contentText, logContent);
   }
 
   /**
@@ -55,9 +58,10 @@ public class DialogHandler {
    * @param titelText
    * @param headerText
    * @param contentText
+   * @param logContent
    */
-  public static void showWarningDialog(@Nonnull String titelText, @Nonnull final String headerText, @Nonnull final String contentText) {
-    showDialog(Alert.AlertType.WARNING, titelText, headerText, contentText);
+  public static void showWarningDialog(@Nonnull String titelText, @Nonnull final String headerText, @Nonnull final String contentText, final boolean logContent) {
+    showDialog(Alert.AlertType.WARNING, titelText, headerText, contentText, logContent);
   }
 
   /**
@@ -65,9 +69,10 @@ public class DialogHandler {
    *
    * @param titelText
    * @param contentText
+   * @param logContent
    */
-  public static void showWarningDialog(@Nonnull final String titelText, @Nonnull final String contentText) {
-    showWarningDialog(titelText, EMPTY, contentText);
+  public static void showWarningDialog(@Nonnull final String titelText, @Nonnull final String contentText, final boolean logContent) {
+    showWarningDialog(titelText, EMPTY, contentText, logContent);
   }
 
   /**
@@ -76,9 +81,10 @@ public class DialogHandler {
    * @param titelText
    * @param headerText
    * @param contentText
+   * @param logContent
    */
-  public static void showErrorDialog(@Nonnull final String titelText, @Nonnull final String headerText, @Nonnull final String contentText) {
-    showDialog(Alert.AlertType.ERROR, titelText, headerText, contentText);
+  public static void showErrorDialog(@Nonnull final String titelText, @Nonnull final String headerText, @Nonnull final String contentText, final boolean logContent) {
+    showDialog(Alert.AlertType.ERROR, titelText, headerText, contentText, logContent);
   }
 
   /**
@@ -86,9 +92,10 @@ public class DialogHandler {
    *
    * @param titelText
    * @param contentText
+   * @param logContent
    */
-  public static void showErrorDialog(@Nonnull final String titelText, @Nonnull final String contentText) {
-    showErrorDialog(titelText, EMPTY, contentText);
+  public static void showErrorDialog(@Nonnull final String titelText, @Nonnull final String contentText, final boolean logContent) {
+    showErrorDialog(titelText, EMPTY, contentText, logContent);
   }
 
   /**
@@ -98,15 +105,25 @@ public class DialogHandler {
    * @param headerText
    * @param contentText
    * @param defaultValue
+   * @param logContent
    * @return the text-entry
    */
-  public static String showTextInputDialog(@Nonnull final String titelText, @Nonnull final String headerText, @Nonnull final String contentText, @Nonnull final String defaultValue) {
+  public static String showTextInputDialog(@Nonnull final String titelText, @Nonnull final String headerText, @Nonnull final String contentText, @Nonnull final String defaultValue, final boolean logContent) {
     final TextInputDialog dialog = new TextInputDialog(defaultValue);
     final Optional<String> result = dialog.showAndWait();
 
     dialog.setTitle(titelText);
     dialog.setHeaderText(headerText);
     dialog.setContentText(contentText);
+
+    if (logContent) {
+      LOGGER.info(String.format("Show Text-Input-Dialog. \n Titel: %s \n Header: %s \n Content: %s", titelText, headerText, contentText));
+      if (headerText == null) {
+        LOGGER.info(String.format("Show Text-Input-Dialog. \n Titel: %s \n Content: %s", titelText, contentText));
+      }
+    }
+
+    dialog.showAndWait();
 
     return result.get();
   }
@@ -117,10 +134,11 @@ public class DialogHandler {
    * @param titelText
    * @param contentText
    * @param defaultValue
+   * @param logContent
    * @return the text-entry
    */
-  public static String showTextInputDialog(@Nonnull final String titelText, @Nonnull final String contentText, @Nonnull final String defaultValue) {
-    return showTextInputDialog(titelText, EMPTY, contentText, defaultValue);
+  public static String showTextInputDialog(@Nonnull final String titelText, @Nonnull final String contentText, @Nonnull final String defaultValue, final boolean logContent) {
+    return showTextInputDialog(titelText, EMPTY, contentText, defaultValue, logContent);
   }
 
   /**
@@ -128,10 +146,11 @@ public class DialogHandler {
    *
    * @param titelText
    * @param contentText
+   * @param logContent
    * @return the text-entry
    */
-  public static String showTextInputDialog(@Nonnull final String titelText, @Nonnull final String contentText) {
-    return showTextInputDialog(titelText, EMPTY, contentText, EMPTY);
+  public static String showTextInputDialog(@Nonnull final String titelText, @Nonnull final String contentText, final boolean logContent) {
+    return showTextInputDialog(titelText, EMPTY, contentText, EMPTY, logContent);
   }
 
   /**
@@ -142,10 +161,11 @@ public class DialogHandler {
    * @param contentText
    * @param buttonTextA => Text of the answers-button one
    * @param buttonTextB => Text of the answers-button two
+   * @param logContent
    * @return
    */
   @Nonnull
-  public static String showConfirmationDialog_A_or_B(@Nonnull final String titelText, @Nonnull final String headerText, @Nonnull final String contentText, @Nonnull final String buttonTextA, @Nonnull final String buttonTextB) {
+  public static String showConfirmationDialog_A_or_B(@Nonnull final String titelText, @Nonnull final String headerText, @Nonnull final String contentText, @Nonnull final String buttonTextA, @Nonnull final String buttonTextB, final boolean logContent) {
     final Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     final ButtonType buttonTypeOne = new ButtonType(buttonTextA);
     final ButtonType buttonTypeTwo = new ButtonType(buttonTextB);
@@ -157,6 +177,13 @@ public class DialogHandler {
     alert.setContentText(contentText);
     alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeCancel);
 
+    if (logContent) {
+      LOGGER.info(String.format("Show Confirmation-Dialog. \n Titel: %s \n Header: %s \n Content: %s", titelText, headerText, contentText));
+      if (headerText == null) {
+        LOGGER.info(String.format("Show Confirmation-Dialog. \n Titel: %s \n Content: %s", titelText, contentText));
+      }
+    }
+
     return result.get().getText();
   }
 
@@ -167,11 +194,12 @@ public class DialogHandler {
    * @param contentText
    * @param buttonTextA => Text of the answers-button one
    * @param buttonTextB => Text of the answers-button two
+   * @param logContent
    * @return
    */
   @Nonnull
-  public static String showConfirmationDialog_A_or_B(@Nonnull final String titelText, @Nonnull final String contentText, @Nonnull final String buttonTextA, @Nonnull final String buttonTextB) {
-    return showConfirmationDialog_A_or_B(titelText, EMPTY, contentText, buttonTextA, buttonTextB);
+  public static String showConfirmationDialog_A_or_B(@Nonnull final String titelText, @Nonnull final String contentText, @Nonnull final String buttonTextA, @Nonnull final String buttonTextB, final boolean logContent) {
+    return showConfirmationDialog_A_or_B(titelText, EMPTY, contentText, buttonTextA, buttonTextB, logContent);
   }
 
   /**
@@ -180,11 +208,12 @@ public class DialogHandler {
    * @param titelText
    * @param headerText
    * @param contentText
+   * @param logContent
    * @param values
    * @return
    */
   @Nonnull
-  public static String showChoiceDialog(@Nonnull final String titelText, @Nonnull final String headerText, @Nonnull final String contentText, @Nonnull final List<String> values) {
+  public static String showChoiceDialog(@Nonnull final String titelText, @Nonnull final String headerText, @Nonnull final String contentText, final boolean logContent, @Nonnull final List<String> values) {
     final ChoiceDialog<String> dialog = new ChoiceDialog(values.get(0), values);
     Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
 
@@ -194,6 +223,13 @@ public class DialogHandler {
 
     stage = addIcon(stage);
 
+    if (logContent) {
+      LOGGER.info(String.format("Show Choice-Dialog. \n Titel: %s \n Header: %s \n Content: %s", titelText, headerText, contentText));
+      if (headerText == null) {
+        LOGGER.info(String.format("Show Choice-Dialog. \n Titel: %s \n Content: %s", titelText, contentText));
+      }
+    }
+
     return dialog.showAndWait().orElse(EMPTY);
   }
 
@@ -202,12 +238,13 @@ public class DialogHandler {
    *
    * @param titelText
    * @param contentText
+   * @param logContent
    * @param values
    * @return
    */
   @Nonnull
-  public static String showChoiceDialog(@Nonnull final String titelText, @Nonnull final String contentText, @Nonnull final List<String> values) {
-    return showChoiceDialog(titelText, EMPTY, contentText, values);
+  public static String showChoiceDialog(@Nonnull final String titelText, @Nonnull final String contentText, final boolean logContent, @Nonnull final List<String> values) {
+    return showChoiceDialog(titelText, EMPTY, contentText, logContent, values);
   }
 
   /**
@@ -217,9 +254,10 @@ public class DialogHandler {
    * @param headerText
    * @param contentText
    * @param exceptionMessage
+   * @param logContent
    */
   @Nonnull
-  public static void showExceptionDialog(@Nonnull final String titelText, @Nonnull final String headerText, @Nonnull final Exception exception) {
+  public static void showExceptionDialog(@Nonnull final String titelText, @Nonnull final String headerText, @Nonnull final Exception exception, final boolean logContent) {
     final Alert alert = new Alert(Alert.AlertType.ERROR);
     final Label label = new Label(STACKTRACE);
     final TextArea textArea = new TextArea(StringFormat.getStackTrace(exception));
@@ -246,7 +284,12 @@ public class DialogHandler {
 
     alert.getDialogPane().setExpandableContent(expContent);
 
-    LOGGER.error(String.format(EXCEPTION_S_S, headerText, StringFormat.getStackTrace(exception)));
+    if (logContent) {
+      LOGGER.info(String.format("Show Exception-Dialog. \n Titel: %s \n Header: %s \n StackTrace: %s", titelText, headerText, StringFormat.getStackTrace(exception)));
+      if (headerText == null) {
+        LOGGER.info(String.format("Show Exception-Dialog. \n Titel: %s \n StackTrace: %s", titelText, StringFormat.getStackTrace(exception)));
+      }
+    }
 
     alert.showAndWait();
   }
@@ -258,9 +301,10 @@ public class DialogHandler {
    * @param titelText
    * @param headerText
    * @param contentText
+   * @param logContent
    */
   @Nonnull
-  public static void showDialog(@Nonnull final Alert.AlertType alertType, @Nonnull final String titelText, @Nonnull final String headerText, @Nonnull final String contentText) {
+  public static void showDialog(@Nonnull final Alert.AlertType alertType, @Nonnull final String titelText, @Nonnull final String headerText, @Nonnull final String contentText, final boolean logContent) {
     final Alert alert = new Alert(alertType);
     alert.setTitle(titelText);
     alert.setHeaderText(headerText);
@@ -269,11 +313,17 @@ public class DialogHandler {
     Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
     stage = addIcon(stage);
 
+    if (logContent) {
+      LOGGER.info(String.format("Show %s-Dialog. \n Titel: %s \n Header: %s \n Content: %s", alertType, titelText, headerText, contentText));
+      if (headerText == null) {
+        LOGGER.info(String.format("Show %s-Dialog. \n Titel: %s \n Content: %s", alertType, titelText, contentText));
+      }
+    }
+
     alert.showAndWait();
   }
 
   //Helper methods
-
   @Nonnull
   private static Stage addIcon(@Nonnull final Stage stage) {
     if (!ICON_PATH.isEmpty()) {
