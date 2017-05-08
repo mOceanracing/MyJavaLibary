@@ -33,7 +33,6 @@ public class DialogHandler {
   private static final String EMPTY = "";
   private static final String CANCEL = "Cancel";
   private static final String STACKTRACE = "Stacktrace:";
-  private static final String EXCEPTION_S_S = "Exception: %s \n %s";
   private static final String ICON_PATH = "";
   
   // Texts for LOGGER
