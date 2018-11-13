@@ -1,14 +1,11 @@
-package helperClasses;
+package helperClasses.AtMomentNotUseFul;
 
 import javax.annotation.Nonnull;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.zip.ZipException;
+import java.util.zip.ZipFile;
 
-import ch.abacus.util.Consts;
-import net.lingala.zip4j.core.ZipFile;
-import net.lingala.zip4j.exception.ZipException;
-import net.lingala.zip4j.model.ZipParameters;
-import net.lingala.zip4j.util.Zip4jConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,7 +19,7 @@ import org.slf4j.LoggerFactory;
  * </dependency>
  */
 public class ZipFileHandler {
-
+  /**
   private static final Logger LOGGER = LoggerFactory.getLogger(ZipFileHandler.class);
   private static final String FILE_EXTENSION_ZIP = ".zip";
   private static final String SLASH = "/";

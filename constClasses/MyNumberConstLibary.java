@@ -1,4 +1,4 @@
-package ch.kissling.MyJavaLibary.constClasses;
+package constClasses;
 
 public class MyNumberConstLibary {
     // Strings 

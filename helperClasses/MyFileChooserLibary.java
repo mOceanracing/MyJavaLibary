@@ -22,7 +22,7 @@ public class MyFileChooserLibary {
         fileChooser.getExtensionFilters().add(extensionFilter);
 
         File file = fileChooser.showOpenDialog(fileChooserStage);
-        if (Objects.equals(file, null)) {
+        if (file.equals(null)) {
             return new File("");
         }
         return file;

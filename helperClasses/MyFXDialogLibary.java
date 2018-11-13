@@ -3,8 +3,9 @@ package helperClasses;
 import javax.annotation.Nonnull;
 import java.io.File;
 import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
+import constClasses.MyFXDialogConstLibary;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
@@ -293,7 +294,7 @@ public class DialogHandler {
                                          final boolean logContent) {
     final Alert alert = new Alert(Alert.AlertType.ERROR);
     final Label label = new Label(STACKTRACE);
-    final TextArea textArea = new TextArea(StringFormat.getStackTrace(exception));
+    final TextArea textArea = new TextArea(exception.getMessage());
     final GridPane expContent = new GridPane();
     Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
 
@@ -320,9 +321,9 @@ public class DialogHandler {
     
     if (logContent) {
       if (headerText == null) {
-        LOGGER.info(String.format(SHOW_S_DIALOG_TITEL_S_STACKTRACE_S, EXCEPTION, titelText, StringFormat.getStackTrace(exception)));
+        LOGGER.info(String.format(SHOW_S_DIALOG_TITEL_S_STACKTRACE_S, EXCEPTION, titelText, exception.getMessage()));
       }else {
-        LOGGER.info(String.format(SHOW_S_DIALOG_TITEL_S_HEADER_S_STACKTRACE_S, EXCEPTION, titelText, headerText, StringFormat.getStackTrace(exception)));
+        LOGGER.info(String.format(SHOW_S_DIALOG_TITEL_S_HEADER_S_STACKTRACE_S, EXCEPTION, titelText, headerText, exception.getMessage()));
       }
     }
 
@@ -334,10 +335,10 @@ public class DialogHandler {
     final DirectoryChooser directoryChooser = new DirectoryChooser();
     final Tooltip tooltip = new Tooltip();
 
-    directoryChooser.setTitle(Const.SELECT_THE_ROOTPATH);
+    directoryChooser.setTitle(MyFXDialogConstLibary.SELECT_THE_ROOTPATH);
     File file = directoryChooser.showDialog(null);
 
-    tooltip.setText(Const.SELECT_THE_DIRECTORY);
+    tooltip.setText(MyFXDialogConstLibary.SELECT_THE_DIRECTORY);
     directoryChooserButton.setTooltip(tooltip);
 
     if (logContent) {
@@ -355,13 +356,13 @@ public class DialogHandler {
     final DirectoryChooser directoryChooser = new DirectoryChooser();
     final Tooltip tooltip = new Tooltip();
 
-    directoryChooser.setTitle(Const.SELECT_THE_ROOTPATH);
+    directoryChooser.setTitle(MyFXDialogConstLibary.SELECT_THE_ROOTPATH);
     File file = directoryChooser.showDialog(null);
     if (file != null) {
       textField.setText(file.getPath());
     }
 
-    tooltip.setText(Const.SELECT_THE_DIRECTORY);
+    tooltip.setText(MyFXDialogConstLibary.SELECT_THE_DIRECTORY);
     directoryChooserButton.setTooltip(tooltip);
 
     file.getPath();
