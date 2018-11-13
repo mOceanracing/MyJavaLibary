@@ -1,9 +1,10 @@
-package ch.kissling.MyJavaLibary.helperClasses;
+package helperClasses;
 
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.annotation.Nonnull;
 import java.io.File;
 import java.util.Objects;
 

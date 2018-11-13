@@ -1,5 +1,6 @@
-package ch.kissling.MyJavaLibary.helperClasses;
+package helperClasses;
 
+import javax.annotation.Nonnull;
 import java.util.prefs.Preferences;
 
 public class MyPreferenceLibary {

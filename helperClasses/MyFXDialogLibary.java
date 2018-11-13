@@ -1,11 +1,10 @@
+package helperClasses;
+
 import javax.annotation.Nonnull;
 import java.io.File;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
-import ch.abacus.util.Const;
-import ch.abacus.util.StringFormat;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
@@ -26,6 +25,7 @@ import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@SuppressWarnings("Since15")
 public class DialogHandler {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(DialogHandler.class);
@@ -286,8 +286,6 @@ public class DialogHandler {
    *
    * @param titelText
    * @param headerText
-   * @param contentText
-   * @param exceptionMessage
    * @param logContent
    */
   @Nonnull

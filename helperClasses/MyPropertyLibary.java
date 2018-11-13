@@ -1,3 +1,6 @@
+package helperClasses;
+
+import javax.annotation.Nonnull;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +22,7 @@ public class MyPropertyLibary {
 	}
 	
 	public static File createNewPropertyFile(@Nonnull final String fileName, @Nonnull final String directory, @Nonnull final String... properyName) {
-		List propertys = new ArrayList<>();
+		List propertys = new ArrayList<Object>();
 		
 		File file = createNewPropertyFile(fileName, directory);
 		
@@ -30,6 +33,7 @@ public class MyPropertyLibary {
 		if(!propertys.isEmpty()){
 			// Save into new File
 		}
+		return file;
 	}
 	
 	
@@ -45,7 +49,9 @@ public class MyPropertyLibary {
 	 * @return
 	 */
 	public static String loadProperty(@Nonnull final String properyName, @Nonnull final String properyFile) {
-		
+
+
+		return "";
 	}
 	
 	/**
@@ -54,8 +60,8 @@ public class MyPropertyLibary {
 	 * @param properyFile
 	 * @return
 	 */
-	public static String saveProperty(@Nonnull final String properyName, @Nonnull final String properyFile) {
-		properyName = properyName.toUpperCase();
+	public static String saveProperty(@Nonnull String properyName, @Nonnull final String properyFile) {
+		return properyName = properyName.toUpperCase();
 	}
 
 	

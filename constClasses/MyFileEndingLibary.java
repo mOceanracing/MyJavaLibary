@@ -1,4 +1,4 @@
-package ch.kissling.MyJavaLibary.helperClasses;
+package constClasses;
 
 public class MyFileEndingLibary {
     public final static String FILE_EXTENSION_XML = ".xml";

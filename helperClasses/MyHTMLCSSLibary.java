@@ -1,4 +1,4 @@
-package ch.kissling.MyJavaLibary.helperClasses;
+package helperClasses;
 
 public class MyHTMLCSSLibary {
 
